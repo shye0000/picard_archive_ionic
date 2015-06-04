@@ -1,0 +1,16 @@
+<ion-view view-title="PICARD Archive">
+  <ion-content>
+  	<div class="item item-avatar" href="#">
+      <img src="img/small_sat_picard.jpg">
+      <div class="item-text-wrap">The app version of PICARD Archive</div>
+      <p>Beta</p>
+    </div>
+    <ion-list>
+      <ion-item ng-repeat="block in blocks" href="#/app/">
+        {{block.title}}
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+
+</ion-view>

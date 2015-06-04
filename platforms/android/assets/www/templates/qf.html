@@ -1,0 +1,52 @@
+<ion-view view-title="Query Form">
+  <ion-content ng-disabled="busy">
+    <div class="list">
+      <label class="item item-input">
+        <div class="input-label">Date From</div>
+        <input class="datepick" type="date" ng-model="datefrom_selected"/>
+      </label>
+      <label class="item item-input">
+        <div class="input-label">Date To</div>
+        <input class="datepick" type="date" ng-model="dateto_selected"/>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">Telescop</div>
+        <select ng-model="telescop_selected">
+          <option ng-repeat="v in telescop.values">{{v.value}}</option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">Product Level</div>
+        <select ng-model="levelpro_selected">
+          <option ng-repeat="v in level_pro.values">{{v.value}}</option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">Observation Mode</div>
+        <select ng-model="obsmode_selected">
+          <option ng-repeat="v in obs_mode.values">{{v.value}}</option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">Observation Type</div>
+        <select ng-model="obstype_selected">
+          <option ng-repeat="v in obs_type.values">{{v.value}}</option>
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">Wavelength</div>
+        <select ng-model="lambda_selected">
+          <option ng-repeat="v in lambda.values">{{v.value}}</option>
+        </select>
+      </label>
+
+    </div>
+    <div class="padding">
+      <a class="button button-block button-positive" href="#/app/dataaccess/dse/datatable{{qform.data[0].parentUrl}}/PICARD/{{datefrom_selected }}/{{dateto_selected }}/{{telescop_selected}}/{{levelpro_selected}}/{{obsmode_selected}}/{{obstype_selected}}/{{lambda_selected}}">Submit</a>
+    </div>
+  </ion-content>
+
+  <ion-content ng-show="busy" class="busyLayer">
+    <ion-spinner icon='android' class=""></ion-spinner>
+  </ion-content>
+</ion-view>

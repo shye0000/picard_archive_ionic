@@ -1,0 +1,122 @@
+/* Empty. Add your own CSS if you like */
+.hassubheader{
+    top:88px;
+}
+.nopadding{
+	padding:0;
+}
+.button.nomargin{
+    margin:0;
+}
+.listtitle{
+	padding:16px;
+}
+H3.level2{
+    margin-bottom: 0px;
+}
+.listtitle.level1{
+	background: #98AFC7;
+    margin: 0;
+}
+.level2{
+	background: #BCC6CC;
+    padding-left: 50px;
+    margin-bottom: 0;
+}
+.listtitle.level23{
+    background: #E5E4E2;
+    padding-left: 50px;
+    margin-bottom: 0;
+}
+.level3{
+	background: #E5E4E2;
+}
+
+.action-sheet .button.action-sheet-option {
+    background-color: transparent;
+    border-color: #d1d3d6;
+    border-radius: 0;
+    color: #007aff;
+    display: block;
+    font-size: 21px;
+    padding: 1px;
+    width: 100%;
+    text-align: center;
+}
+div.action-sheet-title {
+    color: #8f8f8f;
+    font-size: 16px;
+    padding: 16px;
+    text-align: center;
+}
+input.datepick {
+    -moz-appearance: none;
+    background: none repeat scroll 0 0 #fff;
+    border: medium none;
+    color: #333;
+    cursor: pointer;
+    direction: rtl;
+    font-size: 14px;
+    max-width: 65%;
+    padding: 14px 48px 16px 16px;
+    position: absolute;
+    right: 0;
+    text-indent: 0.01px;
+    text-overflow: "";
+    white-space: nowrap;
+}
+.item-checkbox .checkbox.mycheckbox {
+    z-index: 0;
+}
+
+.busyLayer{
+
+
+    background-color: rgba(127, 127, 127, 0.3);
+    background: rgba(127, 127, 127, 0.3);
+    color: rgba(127, 127, 127, 0.3);
+    text-align: center;
+    width:100%;
+    padding-top:50%;
+    position: absolute;
+}
+a{
+    text-decoration: none;
+}
+
+.errorText{
+    color: #FF9999;
+}
+.icondownload{
+    background-color: #33cd5f;
+    border-color: #28a54c;
+    color: #fff;
+}
+.icondownload:focus{
+    background-color: #000;
+}
+.dataelement{
+    cursor: pointer;
+}
+.datainfo:focus{
+    background-color: #000;
+}
+.item-icon-left .icon.myicon, .item-icon-right .icon.myicon {
+    height: 50px;
+}
+.imgtype{
+    border-radius: 50%;
+    height: 100%;
+    left: 4px;
+    max-height: 40px;
+    max-width: 40px;
+    position: absolute;
+    top: 4px;
+    width: 100%;
+}
+.listtitle.level1:focus{
+    background-color: black;
+}
+.pointerCursor{
+    cursor:pointer;
+}

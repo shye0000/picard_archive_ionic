@@ -1,0 +1,50 @@
+<ion-view view-title="Data Table - {{dsname}}">
+  
+  <div class="bar bar-subheader mysubheader" ng-show="showAsynButton">
+    <button class="button button-clear button-dart" >{{numberSelected}} file selected</button>
+    <div class="title"></div>
+    <a class="button button-balanced icon-left ion-archive" onclick="" href="#/app/dataaccess/downloadasyn{{downloadUrl}}">Download selected</a>
+  </div>
+  <ion-content class="" ng-class="{hassubheader:showAsynButton}" ng-disabled="busy" ng-init="loadData()">
+    <ul class="list">
+      <li ng-repeat="d in data" class="item item-checkbox" ng-init="showDetail=false">
+        <div class="checkbox mycheckbox">
+          <input type="checkbox" value="{{d.id}}" ng-checked="selection.indexOf(d.id) > -1" ng-click="toggleSelection(d.id)">
+        </div>
+        <div class="item item-icon-right item-avatar dataelement" ng-show="!showDetail">
+        	<img src="http://idoc-picard.ias.u-psud.fr{{getSmallImage(d.dir_preview)}}" ng-click="showImg(d.dir_preview,d.filename)">
+          <div class="datainf">
+          <h2 ng-click="showDetail=!showDetail">
+            {{d.filename}}
+          </h2>
+          <p ng-click="showDetail=!showDetail">{{d.datetimeobs}}</p>
+          </div>
+  			    <i class="icon ion-archive icondownload" ng-click="openwindow('http://idoc-picard.ias.u-psud.fr{{d.dir_fits}}')"></i>
+  	    </div>
+        <div class="item item-avatar dataelement" ng-show="showDetail">
+          <img src="http://idoc-picard.ias.u-psud.fr{{getSmallImage(d.dir_preview)}}" ng-click="showImg(d.dir_preview,d.filename)">
+          <div class="item item-text-wrap datainfo" ng-click="showDetail=!showDetail">
+            <b>Filename:</b>  {{d.filename}}<br/>
+            <b>Instrument:</b>  {{d.instrume}}<br/>
+            <b>Telescop:</b>  {{d.telescop}}<br/>
+            <b>Date&Time:</b>  {{d.datetimeobs}}<br/>
+            <b>Observation mode:</b>  {{d.obs_mode}}<br/>
+            <b>Observation type:</b>  {{d.obs_type}}<br/>
+            <b>Product level:</b>  {{d.level_pro}}<br/>
+            <b>Wavelength:</b>  {{d.lambda}}
+          </div>
+          <button class="button button-full button-balanced" ng-click="openwindow('http://idoc-picard.ias.u-psud.fr{{d.dir_fits}}')">
+            <i class="icon ion-archive"></i>
+          </button>
+        </div>	
+      </li>
+    </ul>
+    <button class="button button-block button-positive" ng-click="loadData()">
+      Load more
+    </button>
+      
+  </ion-content>
+  <ion-content ng-show="busy" class="busyLayer">
+    <ion-spinner icon='android' class=""></ion-spinner>
+  </ion-content>
+</ion-view>

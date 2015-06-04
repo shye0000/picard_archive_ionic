@@ -1,0 +1,27 @@
+<ion-view view-title="Download Form">
+  <ion-content ng-disabled="busy">
+    <form name="downloadFormPublic"  ng-show="!userlogin">
+		<label class="item item-input">
+		<input type="text" name="filename" placeholder="Filename" ng-model="filename"  required>
+		</label>
+		<label class="item item-input">
+		<input type="email" name="email" placeholder="Email" ng-model="email"  required>
+		</label>
+	</form>
+	<div class="padding" ng-show="!userlogin">
+		<button class="button button-block button-balanced" ng-disabled="downloadFormPublic.$invalid" ng-click="downloadPublic(email,filename)">Submit</button>
+	</div>
+	<form name="downloadForm"  ng-show="userlogin">
+		<label class="item item-input">
+		<input type="text" name="filename" placeholder="Filename" ng-model="filename"  required>
+		</label>
+	</form>
+	<div class="padding" ng-show="userlogin">
+		<button class="button button-block button-balanced" ng-disabled="downloadForm.$invalid" ng-click="download(filename)">Submit</button>
+	</div>
+  </ion-content>
+
+  <ion-content ng-show="busy" class="busyLayer">
+    <ion-spinner icon='android' class=""></ion-spinner>
+  </ion-content>
+</ion-view>

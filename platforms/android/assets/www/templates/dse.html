@@ -1,0 +1,61 @@
+<ion-view view-title="Datasets Explorer">
+  <ion-content ng-disabled="busy">
+ 
+      <ion-item class=" nopadding item-icon-right" ng-repeat="telescope in graph.nodeList" >
+        <H2 class="pointerCursor listtitle level1" ng-click="collapsed=!collapsed" ng-bind-html="telescope.text | split : '<br/>' : 0"></H2>
+        <i class="pointerCursor icon ion-plus" ng-show="!collapsed" ng-click="collapsed=!collapsed"></i>
+        <i class="pointerCursor icon ion-minus myicon" ng-show="collapsed" ng-click="collapsed=!collapsed"></i>
+        <ion-list class="title" ng-show="collapsed">
+          <div ng-repeat="type in telescope.children">
+        		<ion-item class="nopadding item-icon-right" ng-show="!checkNodeTypeDownload(type.text)" >
+              <img class="pointerCursor imgtype" src="http://idoc-picard.ias.u-psud.fr{{type.image.url}}">
+          		<H3 class="pointerCursor listtitle level2" ng-click="coll=!coll" ng-bind-html="type.text | split : '<br/>' : 0" ></H3>
+              <i class="pointerCursor icon ion-android-add" ng-show="!coll" ng-click="coll=!coll"></i>
+              <i class="pointerCursor icon ion-android-remove myicon" ng-show="coll" ng-click="coll=!coll"></i>
+        			<ion-list class="" ng-show="coll">
+        				<ion-item class="nopadding" ng-repeat="ds in type.children" >
+          				<div class='nopadding item item-icon-right' ng-show="!ds.leaf">
+                    <h4 class="pointerCursor listtitle level23" ng-bind-html="ds.text" ng-click="co=!co"></h4> 
+                    <i class="pointerCursor icon ion-ios-plus-empty" ng-show="!co" ng-click="co=!co"></i>
+                    <i class="pointerCursor icon ion-ios-minus-empty myicon" ng-show="co" ng-click="co=!co"></i>
+                    <ion-item class="nopadding" ng-repeat="d in ds.children" ng-show="co">
+                      <div class='listtitle level3'>
+                        <a href="#/app/dataaccess/dse/datatable{{d.url}}/{{d.text}}">
+                          <div class="item item-icon-right item-avatar">
+                            <img src="http://idoc-picard.ias.u-psud.fr{{d.imageDs}}"/>
+                            <h4 ng-bind-html="d.text | split : ' -' : 2"></h4> 
+                            <p>({{d.nbRecord}} records)</p>
+                            <i class="icon ion-search"></i>
+                          </div>
+                        </a>
+                      </div>
+                    </ion-item>
+                  </div>
+                  <div class='listtitle level3' ng-show="ds.leaf">
+                    <a href="#/app/dataaccess/dse/datatable{{ds.url}}/{{ds.text}}">
+            					<div class="item item-icon-right item-avatar">
+            						<img src="http://idoc-picard.ias.u-psud.fr{{ds.imageDs}}">
+            						<h4 ng-bind-html="ds.text | split : ' -' : 2"></h4> 
+            						<p>({{ds.nbRecord}} records)</p>
+    									  <i class="icon ion-search"></i>
+    							    </div>
+                    </a>
+          				</div>
+        				</ion-item>
+      			  </ion-list>
+        		</ion-item>
+            <ion-item class="nopadding item-icon-right" ng-show="checkNodeTypeDownload(type.text)" ng-click="openwindow(type.text)">
+              <img class="pointerCursor imgtype" src="http://idoc-picard.ias.u-psud.fr{{type.image.url}}">
+              <H3 class="pointerCursor listtitle level2" ng-click="" ng-bind-html="type.text | split : '<br/>' : 0" ></H3>
+              <i class="pointerCursor icon ion-archive icondownload"></i>
+              
+            </ion-item>
+          </div>
+    	  </ion-list>
+      </ion-item>
+   
+  </ion-content>
+  <ion-content ng-show="busy" class="busyLayer">
+    <ion-spinner icon='android' class=""></ion-spinner>
+  </ion-content>
+</ion-view>

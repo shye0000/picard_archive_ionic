@@ -1,0 +1,10 @@
+<ion-view view-title="Data Access">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-icon-right" ng-repeat="access in dataaccess" href="#/app/dataaccess/{{access.tag}}">
+        {{access.title}}
+        <i class="icon ion-android-search"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

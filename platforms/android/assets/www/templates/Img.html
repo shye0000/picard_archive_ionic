@@ -1,0 +1,13 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">{{file}}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeImg()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content ng-disable="busy">
+    <div class="item">
+    <img class="full-image" src="http://idoc-picard.ias.u-psud.fr{{dir_pre}}">
+  </div>
+  </ion-content>
+</ion-modal-view>
